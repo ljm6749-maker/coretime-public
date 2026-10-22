@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>우리 몇 시에 만날까요?</title>
+<meta name="description" content="한화비전 글로벌 코어타임 기준으로 법인별 현지 시각을 한 눈에 보고 회의 시간을 정하는 도구">
+
+<!-- 메일 · 메신저에 링크를 붙여넣을 때 표시되는 정보 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="한화비전 글로벌 코어타임">
+<meta property="og:title" content="우리 몇 시에 만날까요?">
+<meta property="og:description" content="한화비전 글로벌 코어타임 기준으로 법인별 현지 시각을 한 눈에 보고 회의 시간을 정하는 도구">
+<meta property="og:url" content="https://coretime.pages.dev/">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="우리 몇 시에 만날까요?">
+<meta name="twitter:description" content="한화비전 글로벌 코어타임 기준으로 법인별 현지 시각을 한 눈에 보고 회의 시간을 정하는 도구">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__brand">
+    <span class="topbar__mark" aria-hidden="true"></span>
+    <span class="topbar__title">HANWHA VISION</span>
+    <span class="topbar__sub" data-i18n="brand.sub">글로벌 코어타임</span>
+  </div>
+  <div class="langswitch" id="langSwitch" role="group" aria-label="Language / 언어">
+    <button type="button" class="langswitch__btn is-active" data-ui-lang="ko">Korean</button>
+    <button type="button" class="langswitch__btn" data-ui-lang="en">English</button>
+  </div>
+</header>
+
+<main>
+  <section class="board" aria-labelledby="boardTitle">
+    <div class="board__head">
+      <p class="eyebrow" data-i18n="board.eyebrow">MEETING PLANNER</p>
+      <h1 id="boardTitle" data-i18n="board.title">우리 몇 시에 만날까요?</h1>
+      <p class="board__lead"><span data-i18n="board.lead1">회의 희망 날짜와 관련 정보를 선택하면 각 법인의 현지 시각을 한 눈에 볼 수 있습니다.</span><br>
+      <strong class="hl" data-i18n="board.lead2a">붉은 음영의 글로벌 코어타임</strong><span data-i18n="board.lead2b">을 참고하여 가장 적합한 회의시간을 찾는 데 활용해보세요.</span></p>
+    </div>
+
+    <form class="controls" id="controls" autocomplete="off">
+      <div class="field">
+        <label class="field__label" for="meetingDate" data-i18n="field.date">회의 개최일자</label>
+        <div class="datewrap is-empty" id="dateWrap">
+          <input class="field__input" type="date" id="meetingDate">
+          <span class="datewrap__ph" data-i18n="field.select">선택하세요</span>
+        </div>
+        <p class="field__hint" id="quarterHint"></p>
+      </div>
+      <div class="field">
+        <label class="field__label" for="baseEntity" data-i18n="field.home">나의 소속(홈)</label>
+        <select class="field__input" id="baseEntity"></select>
+      </div>
+      <div class="field">
+        <label class="field__label" for="duration" data-i18n="field.duration">회의 소요시간</label>
+        <select class="field__input" id="duration"></select>
+      </div>
+      <fieldset class="field field--chips">
+        <legend class="field__label" data-i18n="field.participants">회의 참여자 소속</legend>
+        <div class="chips" id="participantChips"></div>
+        <div class="chips__actions">
+          <button type="button" class="linkbtn" data-select="all" data-i18n="action.selectAll">전체 선택</button>
+          <button type="button" class="linkbtn" data-select="none" data-i18n="action.clearAll">전체 해제</button>
+        </div>
+      </fieldset>
+    </form>
+
+    <div class="daytabs" id="dayTabs" role="tablist" aria-label="날짜 선택"></div>
+
+    <div class="timetable" id="timetable" aria-live="polite"></div>
+
+    <div class="panels">
+      <div id="panelMail"></div>
+      <div id="panelPolicy"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p><span data-i18n="footer.feedback1">사이트 개선을 위한 의견은 </span><a class="footer__mail" href="mailto:jaemin@hanwha.com">jaemin@hanwha.com</a><span data-i18n="footer.feedback2">으로 이메일 보내주세요.</span></p>
+  <p class="footer__views" id="viewCounter" hidden></p>
+  <p class="footer__copy" data-i18n="footer.copy">© 2026 Hanwha Vision Co., Ltd. All rights reserved.</p>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/counter.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/tz.js"></script>
+<script src="assets/js/scheduler.js"></script>
+<script src="assets/js/mail.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
